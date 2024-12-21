@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гостиница</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+        <div class="header">
+            <a class="menu active" href="index.html">Главная страница</a>
+            <a  class="menu" href="services.html">Услуги</a>
+            <a  class="menu" href="rooms.html">Номера</a>
+            <a  class="menu" href="contact.html">Забронировать</a>
+        </div>
+        <div class="hotel-description">
+            <h1>Добро пожаловать в гостиницу Kasimov_Hotel!</h1>
+            <p>Ощутите уют и комфорт в нашей современной гостинице Kasimov_Hotel!
+             У нас вы найдете идеальное сочетание стильного дизайна, высококачественного обслуживания и 
+             удобного расположения. Насладитесь безупречными номерами, превосходными завтраками и дружелюбной 
+             атмосферой. 
+             Kasimov_Hotel - ваш выбор для незабываемого пребывания!</p>
+        </div>
+        <div class="celebrity-section">
+            <h2>Отзывы наших гостей</h2>
+            <div class="celebrity">
+                <img src="img/белый.jpg" alt="">
+                <div class="celebrity-info">
+                    <h3>Сергей Витальевич Безруков</h3>
+                    <p>Профессия: Актер-театра и кино. <br>
+                    Помимо актерского творчества ещё и режиссер, директор одного из театров города Москвы. Известный во всем мире по роли Саши Белого из культого сериала "Бригада". <br> PS: "Я искренне рекомендую Kasimov_Hotel для тех, кто ищет комфорт и качество!"</p>
+                </div>
+            </div>
+            <div class="celebrity">
+                <img src="img/тим2.jpg" alt="">
+                <div class="celebrity-info">
+                    <h3>Тимур Ильдарович Юнусов</h3>
+                    <p>Профессия: Музыкант, продюсер.<br>
+                    Известный человек в шоу бизнесе который открыл когда самую популярную группу "Black Star Mafia". Сейчас уже уделяет больше времени продюсерованию молодых артистов. <br>PS: "Невероятный опыт! Kasimov_Hotel - лучший выбор для отдыха."</p>
+                </div>
+            </div>
+            <div class="celebrity">
+                <img src="img/саид.png" alt="">
+                <div class="celebrity-info">
+                    <h3>Саидмурод Раджабович Давлатов</h3>
+                    <p>Профессия: Бизнесмен, мицинат. <br>
+                    Известный человек в Таджикистана, был простым парнем стал самым богатым человеком в Таджикистана. <br>PS: "Довольно часто провожу свои бизнес встречи в Kasimov_Hotel. Очень доволен здесь уютная атмосфера."</p>
+                </div>
+            </div>
+            <div class="faq-section">
+                <h2>Часто задаваемые вопросы</h2>
+                <div class="faq">
+                    <button class="faq-question">Какие удобства доступны в вашем отеле?</button>
+                    <div class="faq-answer">Наш отель предлагает современные удобства, включая Wi-Fi, бассейн, спа, тренажерный зал и ресторан с обслуживанием на высшем уровне.</div>
+                </div>
+                <div class="faq">
+                    <button class="faq-question">Можно ли заказать трансфер из аэропорта?</button>
+                    <div class="faq-answer">Да, мы предлагаем трансфер из и до аэропорта по предварительной договоренности.</div>
+                </div>
+                <div class="faq">
+                    <button class="faq-question">Каковы правила отмены бронирования?</button>
+                    <div class="faq-answer">Бронирование можно отменить бесплатно за 24 часа до даты заезда. Позже взимается штраф.</div>
+                </div>
+                <div class="faq">
+                    <button class="faq-question">Есть ли парковка для гостей?</button>
+                    <div class="faq-answer">Да, наш отель предоставляет бесплатную парковку для всех гостей.</div>
+                </div>
+            </div>
+            
+        </div>     
+        <footer class="footer">
+            <p>Контакты: +99292-777-7777| info@Kasimovhotel.tj</p>
+            <p>&copy; 2024 Kasimovhotel</p>
+        </footer>   
+    </div>
+    <script>
+        // Находим все элементы с классом 'faq-question' и обрабатываем их
+        document.querySelectorAll('.faq-question').forEach(button => {
+            
+            // Для каждого элемента добавляем слушатель события "click"
+            button.addEventListener('click', () => {
+                
+                // Переключаем (добавляем или удаляем) класс 'active' у кнопки при нажатии
+                button.classList.toggle('active');
+                
+                // Находим следующий элемент после кнопки, который является ответом
+                const answer = button.nextElementSibling;
+                
+                // Если ответ уже отображается, скрываем его
+                if (answer.style.display === "block") {
+                    answer.style.display = "none";
+                } 
+                // Если ответ скрыт, то отображаем его
+                else {
+                    answer.style.display = "block";
+                }
+            });
+        });
+    </script>
+    
+    
+</body>
+</html>

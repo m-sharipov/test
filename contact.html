@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Гостиница</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .booking-form {
+        width: 80%;
+        max-width: 600px;
+        margin: 40px auto;
+        background-color: rgba(0, 0, 0, 0.6);
+        padding: 35px;
+        border-radius: 10px;
+        color: #fff;
+        text-align: left;
+        margin-top: 90px;
+      }
+
+      .booking-form h2 {
+        text-align: center;
+        font-size: 1.8em;
+        margin-bottom: 20px;
+      }
+
+      .booking-form label {
+        font-size: 1.1em;
+        display: block;
+        margin-top: 15px;
+      }
+
+      .booking-form input,
+      .booking-form select {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border-radius: 5px;
+        border: none;
+        font-size: 1em;
+      }
+
+      .booking-form button {
+        width: 100%;
+        padding: 12px;
+        margin-top: 20px;
+        background-color: #4caf50;
+        color: white;
+        font-size: 1.2em;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .booking-form button:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div class="header">
+        <a class="menu" href="index.html">Главная страница</a>
+        <a class="menu" href="services.html">Услуги</a>
+        <a class="menu" href="rooms.html">Номера</a>
+        <a class="menu active" href="contact.html">Забронировать</a>
+      </div>
+      <div class="booking-form">
+        <h2>Забронировать номер</h2>
+        <form action="booking_confirmation.html" method="POST">
+          <label for="name">Имя:</label>
+          <input type="text" id="name" name="name" required />
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+
+          <label for="phone">Телефон:</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            pattern="[0-9+-]+"
+            inputmode="numeric"
+            required
+          />
+
+          <label for="room-type">Тип номера:</label>
+          <select id="room-type" name="room-type" required>
+            <option value="standard">Стандарт</option>
+            <option value="semi-luxury">Полулюкс</option>
+            <option value="luxury">Люкс</option>
+            <option value="presidential-suite">Президентский люкс</option>
+          </select>
+
+          <label for="check-in">Дата заезда:</label>
+          <input type="date" id="check-in" name="check-in" required />
+
+          <label for="check-out">Дата выезда:</label>
+          <input type="date" id="check-out" name="check-out" required />
+
+          <label for="guests">Количество гостей:</label>
+          <select
+            id="guests"
+            name="guests"
+            onchange="toggleGuestFields()"
+            required
+          >
+            <option value="1">Один человек</option>
+            <option value="couple">Пара</option>
+            <option value="couple-with-children">Пара с детьми</option>
+            <option value="group">Группа</option>
+          </select>
+
+          <div id="additional-fields" style="display: none">
+            <label for="adults">Количество взрослых:</label>
+            <input type="number" id="adults" name="adults" min="1" max="10" />
+
+            <label for="children">Количество детей:</label>
+            <input
+              type="number"
+              id="children"
+              name="children"
+              min="1"
+              max="10"
+            />
+          </div>
+
+          <button type="submit">Забронировать</button>
+        </form>
+      </div>
+
+      <footer class="footer">
+        <p>Контакты: +99292-777-7777 | info@Kasimovhotel.tj</p>
+        <p>&copy; 2024 Kasimovhotel</p>
+      </footer>
+    </div>
+    <script>
+      function toggleGuestFields() {
+        const guests = document.getElementById("guests").value;
+        const additionalFields = document.getElementById("additional-fields");
+        const childrenField = document.getElementById("children");
+
+        if (guests === "couple-with-children" || guests === "group") {
+          additionalFields.style.display = "block";
+          childrenField.min = 1;
+        } else {
+          additionalFields.style.display = "none";
+          childrenField.min = 0;
+        }
+      }
+
+      document.getElementById("phone").addEventListener("input", function (e) {
+        this.value = this.value.replace(/[^0-9+-]/g, "");
+      });
+    </script>
+  </body>
+</html>
